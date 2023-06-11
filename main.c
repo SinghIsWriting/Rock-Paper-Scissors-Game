@@ -93,7 +93,7 @@ int main()
 
     if (computer_score == user_score)
     {
-        printf("This game is a tie! Congratulations to both.\n");
+        printf("This game is a tie! Congratulations to both of you.\n");
     }
     else if (computer_score < user_score)
     {
