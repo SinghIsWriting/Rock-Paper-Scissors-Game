@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>     // for srand()
+#include <stdlib.h>     // for srand() and rand()
 #include <time.h>       // for time()
 
 /* This function creates a random number between 0 and given num */
@@ -12,7 +12,7 @@ int generate_rand_num(int num)
 int main()
 {
     printf("\n\t************ Welcome to Rock-Paper-Scissors Game ************\n\n");
-    // Creating array of characters for options to choosen by computer
+    // Creating array of characters for options choosen by computer
     char computer[] = {'r', 'p', 's'};
 
     char username[20], user_input;
@@ -20,11 +20,12 @@ int main()
     printf("Please enter your name to start the game: ");
     scanf("%s", &username);
     getchar();
-    int a = 0;
+    int a = 0, tie = 0;
 
     // Implementing a while loop to run the game continuously untill the user choose to quit the game
     while (1)
     {
+        printf("\nScore: User/Computer => %d/%d", user_score, computer_score);
         printf("\nChoose one of the Rock(r), Paper(p), Scissors(s) or Quit(q)\n");
         printf("Computer: Computer has choosen something, it's your turn now: \n%s: ", username);
         scanf("%c", &user_input);
@@ -34,6 +35,7 @@ int main()
         }
         else if (user_input == computer[generate_rand_num(3)])
         {
+            tie++;
             printf("It's a tie!");
         }
         else
@@ -77,14 +79,17 @@ int main()
                     computer_score++;
                 }
             }
+            printf("\nScore: User/Computer => %d/%d", user_score, computer_score);
         }
+        printf("\n");
         getchar();
         a++;         // Counting how many times game is played between computer and user
     }
 
     printf("\n\n\t**************** GAME OVER ****************\n");
     printf("\nComputer's score: %d/%d", computer_score, a);
-    printf("\n%s's score: %d/%d\n\n", username, user_score, a);
+    printf("\n%s's score: %d/%d", username, user_score, a);
+    printf("\nNumber of draw matches: %d\n\n", tie);
 
     if (computer_score == user_score)
     {
