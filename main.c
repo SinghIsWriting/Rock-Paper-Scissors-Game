@@ -101,7 +101,7 @@ int main()
     }
     else if (computer_score > user_score)
     {
-        printf("Opps! %s lost the game. Come again to try.\n", username);
+        printf("Opps! %s lost the game. Play again to try.\n", username);
     }
 
     return 0;
